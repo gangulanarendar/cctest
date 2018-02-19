@@ -1,6 +1,7 @@
 package com.lexcers;
 
 import junit.framework.Test;
+import com.lexcers.App;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -34,7 +35,7 @@ public class AppTest
     public void testApp()
     {
     	App app=new App();
-        assertTrue( app.testResult(2)== 4 );
-        assertTrue( app.testResult(2)== 5 );
+        assertTrue( app.testResult(2)==4 );
+        assertTrue( app.testResult(2)==5 );
     }
 }
