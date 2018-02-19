@@ -36,7 +36,7 @@ public class AppTest
     public void testApp1()
     {
     	
-        assertTrue( app.testResult(2)==4 );
+        assertTrue( app.testResult(2)==4  );
        
         
         
