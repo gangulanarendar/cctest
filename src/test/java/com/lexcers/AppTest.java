@@ -11,6 +11,7 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+	App app=new App();
     /**
      * Create the test case
      *
@@ -32,10 +33,20 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    public void testApp1()
     {
-    	App app=new App();
+    	
         assertTrue( app.testResult(2)==4 );
+       
+        
+        
+    }
+    public void testApp2()
+    {
+    	
         assertTrue( app.testResult(2)==5 );
+      
+        
+        
     }
 }
