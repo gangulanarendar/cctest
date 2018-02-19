@@ -32,6 +32,7 @@ jobs:
           - v1-dependencies-
 
       - run: mvn validate
+	  
 
       - save_cache:
           paths:
@@ -39,6 +40,10 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
         
       # run tests!
-      - run: maven test
+      - run: mvn compile
+	  
+	 
+	  - run: mvn test
+
 
 
