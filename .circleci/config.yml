@@ -1,43 +1,37 @@
-# Java Gradle CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
-version: 2
-jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
+--- 
+jobs: 
+  build: 
+    docker: 
+      - 
+        image: "circleci/openjdk:8-jdk"
+    environment: 
+      JVM_OPTS: "-Xmx3200m"
       TERM: dumb
-    
-    steps:
+    steps: 
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: mvn validate
-
-      - save_cache:
-          paths:
+      - 
+        restore_cache: 
+          keys: 
+            - "v1-dependencies-{{ checksum \"pom.xml\" }}"
+            - v1-dependencies-
+      - 
+        run: "mvn validate"
+      - 
+        save_cache: 
+          key: "v1-dependencies-{{ checksum \"pom.xml\" }}"
+          paths: 
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-        
-      # run tests!
-      - run: mvn compile
-      - run: mvn test 
+      - 
+        run: "mvn compile"
+    test: 
+      - 
+        run: "mvn test"
+      - 
+        store_artifacts: 
+          destination: tr1
+          path: target/surefire-reports
+      - 
+        store_test_results: 
+          path: target/surefire-reports
+    working_directory: ~/repo
+version: 2
