@@ -32,7 +32,6 @@ jobs:
           - v1-dependencies-
 
       - run: mvn validate
-	  
 
       - save_cache:
           paths:
@@ -41,6 +40,5 @@ jobs:
         
       # run tests!
       - run: mvn test
-	  
 
 
