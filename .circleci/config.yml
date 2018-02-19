@@ -40,7 +40,6 @@ jobs:
         
       # run tests!
       - run: mvn compile
-    test: 
       - run: mvn test
       - store_artifacts: 
           destination: tr1
