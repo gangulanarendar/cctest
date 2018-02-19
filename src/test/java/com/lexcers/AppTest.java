@@ -35,5 +35,6 @@ public class AppTest
     {
     	App app=new App();
         assertTrue( app.testResult(2)== 4 );
+        assertTrue( app.testResult(2)== 5 );
     }
 }
